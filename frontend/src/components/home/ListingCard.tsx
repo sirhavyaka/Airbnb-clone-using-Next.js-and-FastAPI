@@ -13,9 +13,10 @@ interface Props {
   onWishlistChange?: () => void;
   badgeText?: string;
   showIncludeFeesBadge?: boolean;
+  experienceSchedule?: "today" | "tomorrow";
 }
 
-export default function ListingCard({ listing, onWishlistChange, badgeText, showIncludeFeesBadge }: Props) {
+export default function ListingCard({ listing, onWishlistChange, badgeText, showIncludeFeesBadge, experienceSchedule }: Props) {
   const [currentImage, setCurrentImage] = useState(0);
   const [wishlisted, setWishlisted] = useState(listing.is_wishlisted);
   const { isAuthenticated } = useAuth();
@@ -56,12 +57,32 @@ export default function ListingCard({ listing, onWishlistChange, badgeText, show
 
   const isExperience = listing.category === "Experiences" || listing.property_type === "Experience";
   const isOriginal = listing.category === "Originals" || listing.property_type === "Original";
+  const isService = listing.category === "Services" || listing.property_type === "Service";
 
   // Determine top-left badge
   let activeBadge = badgeText;
   if (!activeBadge) {
     if (isOriginal) activeBadge = "Original";
-    else if (isExperience) activeBadge = "Sat · 9:15 am";
+    else if (isService && listing.rating >= 4.9) activeBadge = "Popular";
+    else if (isExperience) {
+      const now = new Date();
+      // Use experienceSchedule prop when provided, or fallback deterministically for All/Search views
+      const offsetDays = experienceSchedule === "tomorrow" ? 1 : experienceSchedule === "today" ? 0 : (listing.id % 2 === 0 ? 0 : 1);
+      const targetDate = new Date(now.getTime() + offsetDays * 24 * 60 * 60 * 1000);
+      const dayStr = targetDate.toLocaleDateString("en-US", { weekday: "short" });
+      const dateStr = targetDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      
+      const times = [
+        "7:30 am", "8:15 am", "9:00 am", "9:45 am", "10:30 am", "11:15 am",
+        "12:00 pm", "1:30 pm", "2:45 pm", "3:30 pm", "4:15 pm", "5:00 pm",
+        "6:30 pm", "7:15 pm", "8:00 pm"
+      ];
+      // Deterministic pseudo-random selection based on ID so every card has a distinct time
+      const timeIndex = Math.abs((listing.id * 7 + 3) ^ (listing.id << 1)) % times.length;
+      const timeStr = times[timeIndex];
+      
+      activeBadge = `${dayStr}, ${dateStr} · ${timeStr}`;
+    }
     else if (listing.is_guest_favorite) activeBadge = "Guest favourite";
   }
 
@@ -82,6 +103,9 @@ export default function ListingCard({ listing, onWishlistChange, badgeText, show
           alt={listing.title}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
           loading="lazy"
+          onError={(e) => {
+            e.currentTarget.src = "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600";
+          }}
         />
 
         {/* Carousel Navigation */}
@@ -160,7 +184,7 @@ export default function ListingCard({ listing, onWishlistChange, badgeText, show
       <div className="pt-3">
         <div className="flex justify-between items-center gap-2">
           <span className="text-sm font-bold text-text-primary whitespace-nowrap overflow-hidden text-ellipsis">
-            {isExperience ? listing.title : isOriginal ? listing.title : formatLocation(listing.city, listing.state, listing.country)}
+            {isExperience || isOriginal || isService ? listing.title : formatLocation(listing.city, listing.state, listing.country)}
           </span>
           {listing.rating > 0 && (
             <span className="text-sm font-semibold text-text-primary shrink-0 flex items-center gap-1">
@@ -169,14 +193,22 @@ export default function ListingCard({ listing, onWishlistChange, badgeText, show
           )}
         </div>
         <div className="text-sm text-text-secondary mt-0.5 whitespace-nowrap overflow-hidden text-ellipsis">
-          {isExperience
+          {isService
+            ? `From ${formatPrice(listing.price_per_night, listing.country)} / ${listing.max_guests > 5 ? "group" : "guest"}`
+            : isExperience
             ? `Hosted in ${listing.city}`
             : isOriginal
             ? "Hosted by the world's most interesting people"
             : listing.title}
         </div>
         <div className="mt-1 flex items-baseline gap-1">
-          {isExperience ? (
+          {isService ? (
+            <>
+              {listing.rating > 0 && (
+                <span className="text-sm text-text-secondary">· ★ {formatRating(listing.rating)}</span>
+              )}
+            </>
+          ) : isExperience ? (
             <>
               <span className="text-sm font-bold text-text-primary">From {formatPrice(listing.price_per_night, listing.country)}</span>
               <span className="text-sm text-text-secondary">/ guest</span>

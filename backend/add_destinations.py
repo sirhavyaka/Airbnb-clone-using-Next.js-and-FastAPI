@@ -45,15 +45,15 @@ def add_new_destinations():
                 "images": ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800", "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"]
             },
             {
-                "title": "Flat in Anjuna", "city": "Anjuna", "state": "Goa", "price": 8549, "rating": 4.97, "favorite": True,
+                "title": "Flat in Anjuna", "city": "Anjuna", "state": "Goa", "price": 8549, "rating": 4.97, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800", "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"]
             },
             {
-                "title": "Apartment in North Goa", "city": "North Goa", "state": "Goa", "price": 8673, "rating": 4.90, "favorite": True,
+                "title": "Apartment in North Goa", "city": "North Goa", "state": "Goa", "price": 8673, "rating": 4.90, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800", "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800"]
             },
             {
-                "title": "Flat in North Goa", "city": "North Goa", "state": "Goa", "price": 9998, "rating": 4.95, "favorite": True,
+                "title": "Flat in North Goa", "city": "North Goa", "state": "Goa", "price": 9998, "rating": 4.95, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800", "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"]
             },
             {
@@ -61,11 +61,11 @@ def add_new_destinations():
                 "images": ["https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800", "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800"]
             },
             {
-                "title": "Flat in Nerul", "city": "Nerul", "state": "Goa", "price": 13010, "rating": 5.00, "favorite": True,
+                "title": "Flat in Nerul", "city": "Nerul", "state": "Goa", "price": 13010, "rating": 5.00, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800", "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"]
             },
             {
-                "title": "Flat in Candolim Sea View", "city": "Candolim", "state": "Goa", "price": 11599, "rating": 4.93, "favorite": True,
+                "title": "Flat in Candolim Sea View", "city": "Candolim", "state": "Goa", "price": 11599, "rating": 4.93, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800", "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"]
             },
             # Next 4 revealed on right scroll (including Villa in Ribandar from Image 2)
@@ -74,7 +74,7 @@ def add_new_destinations():
                 "images": ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800", "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"]
             },
             {
-                "title": "Luxury Pool Villa in Baga", "city": "Baga", "state": "Goa", "price": 14500, "rating": 4.96, "favorite": True,
+                "title": "Luxury Pool Villa in Baga", "city": "Baga", "state": "Goa", "price": 14500, "rating": 4.96, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800", "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800"]
             },
             {
@@ -90,15 +90,15 @@ def add_new_destinations():
         # 2. OOTY LISTINGS (7 initial + 4 more = 11 total matching Image 1)
         ooty_data = [
             {
-                "title": "Flat in Ooty", "city": "Ooty", "state": "Tamil Nadu", "price": 13695, "rating": 4.90, "favorite": True,
+                "title": "Flat in Ooty", "city": "Ooty", "state": "Tamil Nadu", "price": 13695, "rating": 4.90, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800", "https://images.unsplash.com/photo-1518732714860-b62714ce0c59?w=800"]
             },
             {
-                "title": "Bed and breakfast in Ooty", "city": "Ooty", "state": "Tamil Nadu", "price": 4565, "rating": 4.83, "favorite": True,
+                "title": "Bed and breakfast in Ooty", "city": "Ooty", "state": "Tamil Nadu", "price": 4565, "rating": 4.83, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800", "https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=800"]
             },
             {
-                "title": "Place to stay in Ooty Valley", "city": "Ooty", "state": "Tamil Nadu", "price": 6125, "rating": 4.79, "favorite": True,
+                "title": "Place to stay in Ooty Valley", "city": "Ooty", "state": "Tamil Nadu", "price": 6125, "rating": 4.79, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1585543805890-6051f7829f98?w=800", "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800"]
             },
             {
@@ -106,7 +106,7 @@ def add_new_destinations():
                 "images": ["https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800", "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800"]
             },
             {
-                "title": "Hotel in Ketty", "city": "Ketty", "state": "Tamil Nadu", "price": 11000, "rating": 4.92, "favorite": True,
+                "title": "Hotel in Ketty", "city": "Ketty", "state": "Tamil Nadu", "price": 11000, "rating": 4.92, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800", "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800"]
             },
             {
@@ -114,12 +114,12 @@ def add_new_destinations():
                 "images": ["https://images.unsplash.com/photo-1518732714860-b62714ce0c59?w=800", "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800"]
             },
             {
-                "title": "Villa in Katteri", "city": "Katteri", "state": "Tamil Nadu", "price": 23705, "rating": 4.97, "favorite": True,
+                "title": "Villa in Katteri", "city": "Katteri", "state": "Tamil Nadu", "price": 23705, "rating": 4.97, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800", "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"]
             },
             # Next 4 revealed on right scroll
             {
-                "title": "Hilltop Cabin in Coonoor", "city": "Coonoor", "state": "Tamil Nadu", "price": 12200, "rating": 4.94, "favorite": True,
+                "title": "Hilltop Cabin in Coonoor", "city": "Coonoor", "state": "Tamil Nadu", "price": 12200, "rating": 4.94, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800", "https://images.unsplash.com/photo-1518732714860-b62714ce0c59?w=800"]
             },
             {
@@ -131,7 +131,7 @@ def add_new_destinations():
                 "images": ["https://images.unsplash.com/photo-1585543805890-6051f7829f98?w=800", "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800"]
             },
             {
-                "title": "Pine View Suite in Ooty", "city": "Ooty", "state": "Tamil Nadu", "price": 8900, "rating": 4.89, "favorite": True,
+                "title": "Pine View Suite in Ooty", "city": "Ooty", "state": "Tamil Nadu", "price": 8900, "rating": 4.89, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800", "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800"]
             }
         ]
@@ -139,11 +139,11 @@ def add_new_destinations():
         # 3. BANGALORE LISTINGS (3rd popular destination)
         blr_data = [
             {
-                "title": "Flat in Indiranagar", "city": "Bangalore", "state": "Karnataka", "price": 7500, "rating": 4.93, "favorite": True,
+                "title": "Flat in Indiranagar", "city": "Bangalore", "state": "Karnataka", "price": 7500, "rating": 4.93, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800", "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"]
             },
             {
-                "title": "Loft in Koramangala", "city": "Bangalore", "state": "Karnataka", "price": 6800, "rating": 4.91, "favorite": True,
+                "title": "Loft in Koramangala", "city": "Bangalore", "state": "Karnataka", "price": 6800, "rating": 4.91, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800", "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"]
             },
             {
@@ -155,15 +155,15 @@ def add_new_destinations():
                 "images": ["https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=800", "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"]
             },
             {
-                "title": "Garden Villa in Sadashivanagar", "city": "Bangalore", "state": "Karnataka", "price": 18500, "rating": 4.99, "favorite": True,
+                "title": "Garden Villa in Sadashivanagar", "city": "Bangalore", "state": "Karnataka", "price": 18500, "rating": 4.99, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800", "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800"]
             },
             {
-                "title": "Flat in MG Road", "city": "Bangalore", "state": "Karnataka", "price": 8200, "rating": 4.90, "favorite": True,
+                "title": "Flat in MG Road", "city": "Bangalore", "state": "Karnataka", "price": 8200, "rating": 4.90, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800", "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800"]
             },
             {
-                "title": "Apartment in Malleshwaram", "city": "Bangalore", "state": "Karnataka", "price": 6400, "rating": 4.94, "favorite": True,
+                "title": "Apartment in Malleshwaram", "city": "Bangalore", "state": "Karnataka", "price": 6400, "rating": 4.94, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800", "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800"]
             },
             # Next 4 revealed on right scroll
@@ -172,7 +172,7 @@ def add_new_destinations():
                 "images": ["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800", "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"]
             },
             {
-                "title": "Luxury Suite in Lavelle Road", "city": "Bangalore", "state": "Karnataka", "price": 13900, "rating": 4.98, "favorite": True,
+                "title": "Luxury Suite in Lavelle Road", "city": "Bangalore", "state": "Karnataka", "price": 13900, "rating": 4.98, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800", "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800"]
             },
             {
@@ -180,7 +180,7 @@ def add_new_destinations():
                 "images": ["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800", "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800"]
             },
             {
-                "title": "Villa near Nandi Hills", "city": "Bangalore", "state": "Karnataka", "price": 16000, "rating": 4.97, "favorite": True,
+                "title": "Villa near Nandi Hills", "city": "Bangalore", "state": "Karnataka", "price": 16000, "rating": 4.97, "favorite": False,
                 "images": ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800", "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800"]
             }
         ]

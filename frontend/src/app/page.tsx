@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useCallback, useRef, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import CategoryBar from "@/components/home/CategoryBar";
 import ListingCard from "@/components/home/ListingCard";
 import api from "@/lib/api";
 import type { ListingCard as ListingCardType, PaginatedListings } from "@/types";
@@ -15,6 +14,7 @@ interface SectionCarouselProps {
   badgeOverride?: string;
   showIncludeFeesBadgeOnFirst?: boolean;
   onSeeAll?: () => void;
+  experienceSchedule?: "today" | "tomorrow";
 }
 
 function SectionCarousel({
@@ -25,6 +25,7 @@ function SectionCarousel({
   badgeOverride,
   showIncludeFeesBadgeOnFirst,
   onSeeAll,
+  experienceSchedule,
 }: SectionCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -84,6 +85,7 @@ function SectionCarousel({
                 onWishlistChange={onWishlistChange}
                 badgeText={badgeOverride}
                 showIncludeFeesBadge={idx === 0 && showIncludeFeesBadgeOnFirst}
+                experienceSchedule={experienceSchedule}
               />
             </div>
           ))}
@@ -111,6 +113,9 @@ function SectionCarousel({
                         src={(l as any).image_url || (l.images && l.images[0]?.url) || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400"}
                         alt="Preview"
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600";
+                        }}
                       />
                     </div>
                   ))}
@@ -181,11 +186,20 @@ function HomeContent() {
   }, [category, searchParams]);
 
   // Grouped sections for exact Image 1 & 2 layout
-  const goaListings = listings.filter((l) => l.city.toLowerCase().includes("goa") || l.city.toLowerCase().includes("calangute") || l.city.toLowerCase().includes("anjuna") || l.city.toLowerCase().includes("candolim") || l.city.toLowerCase().includes("nerul") || l.city.toLowerCase().includes("ribandar") || l.city.toLowerCase().includes("baga") || l.city.toLowerCase().includes("vagator") || l.city.toLowerCase().includes("morjim"));
-  const ootyListings = listings.filter((l) => l.city.toLowerCase().includes("ooty") || l.city.toLowerCase().includes("ketty") || l.city.toLowerCase().includes("katteri") || l.city.toLowerCase().includes("coonoor") || l.city.toLowerCase().includes("lovedale"));
-  const blrListings = listings.filter((l) => l.city.toLowerCase().includes("bangalore") && l.category === "Homes");
+  const goaListings = listings.filter((l) => (l.city.toLowerCase().includes("goa") || l.city.toLowerCase().includes("calangute") || l.city.toLowerCase().includes("anjuna") || l.city.toLowerCase().includes("candolim") || l.city.toLowerCase().includes("nerul") || l.city.toLowerCase().includes("ribandar") || l.city.toLowerCase().includes("baga") || l.city.toLowerCase().includes("vagator") || l.city.toLowerCase().includes("morjim")) && l.category !== "Experiences" && l.property_type !== "Experience" && l.category !== "Services" && l.property_type !== "Service" && l.category !== "Originals" && l.property_type !== "Original");
+  const ootyListings = listings.filter((l) => (l.city.toLowerCase().includes("ooty") || l.city.toLowerCase().includes("ketty") || l.city.toLowerCase().includes("katteri") || l.city.toLowerCase().includes("coonoor") || l.city.toLowerCase().includes("lovedale")) && l.category !== "Experiences" && l.property_type !== "Experience" && l.category !== "Services" && l.property_type !== "Service" && l.category !== "Originals" && l.property_type !== "Original");
+  const blrListings = listings.filter((l) => l.city.toLowerCase().includes("bangalore") && l.category !== "Experiences" && l.property_type !== "Experience" && l.category !== "Services" && l.property_type !== "Service" && l.category !== "Originals" && l.property_type !== "Original");
   const experienceListings = listings.filter((l) => l.category === "Experiences" || l.property_type === "Experience");
   const originalListings = listings.filter((l) => l.category === "Originals" || l.property_type === "Original");
+  const serviceListings = listings.filter((l) => l.category === "Services" || l.property_type === "Service");
+
+  // Split experiences into two groups for "Happening today" / "Happening tomorrow"
+  const experiencesToday = experienceListings.slice(0, Math.ceil(experienceListings.length / 2));
+  const experiencesTomorrow = experienceListings.slice(Math.ceil(experienceListings.length / 2));
+
+  // Split services by city
+  const goaServices = serviceListings.filter((l) => l.city.toLowerCase().includes("goa") || l.state.toLowerCase().includes("goa"));
+  const blrServices = serviceListings.filter((l) => l.city.toLowerCase().includes("bangalore") || l.city.toLowerCase().includes("bengaluru") || l.state.toLowerCase().includes("karnataka"));
 
   // Fallback for rest or if not enough specific ones
   const otherHomes = listings.filter(
@@ -196,16 +210,13 @@ function HomeContent() {
       l.category !== "Experiences" &&
       l.property_type !== "Experience" &&
       l.category !== "Originals" &&
-      l.property_type !== "Original"
+      l.property_type !== "Original" &&
+      l.category !== "Services" &&
+      l.property_type !== "Service"
   );
 
   return (
     <>
-      {/* CategoryBar when searching or explicitly browsing categories */}
-      {(isSearchActive || activeTab === "homes") && !isAllView && (
-        <CategoryBar activeCategory={category} onSelect={(c) => setCategory(c)} />
-      )}
-
       {loading ? (
         <div className="max-w-[1760px] mx-auto px-6 md:px-10 lg:px-20 py-10">
           <div className="listing-grid">
@@ -289,26 +300,34 @@ function HomeContent() {
       ) : activeTab === "experiences" ? (
         <div className="pb-12 pt-2">
           <SectionCarousel
-            title="Experiences this weekend"
-            items={experienceListings}
+            title="Happening today"
+            items={experiencesToday.length > 0 ? experiencesToday : listings.slice(0, 11)}
             onWishlistChange={fetchListings}
-            badgeOverride="Sat · 9:15 am"
             onSeeAll={() => router.push("/?view=all")}
+            experienceSchedule="today"
           />
           <SectionCarousel
-            title="Airbnb Originals"
-            subtitle="Hosted by the world's most interesting people"
-            items={originalListings}
+            title="Happening tomorrow"
+            items={experiencesTomorrow.length > 0 ? experiencesTomorrow : listings.slice(11, 22)}
             onWishlistChange={fetchListings}
-            badgeOverride="Original"
             onSeeAll={() => router.push("/?view=all")}
+            experienceSchedule="tomorrow"
           />
         </div>
       ) : activeTab === "services" ? (
         <div className="pb-12 pt-2">
+          <div className="px-6 md:px-10 lg:px-20 max-w-[1760px] mx-auto pt-4 pb-2">
+            <h1 className="text-3xl font-bold text-text-primary">Discover services on Airbnb</h1>
+          </div>
           <SectionCarousel
-            title="Popular Services & Experiences"
-            items={[...experienceListings, ...originalListings]}
+            title="Services in South Goa"
+            items={goaServices.length > 0 ? goaServices : listings.slice(0, 11)}
+            onWishlistChange={fetchListings}
+            onSeeAll={() => router.push("/?view=all")}
+          />
+          <SectionCarousel
+            title="Services in Bengaluru"
+            items={blrServices.length > 0 ? blrServices : listings.slice(11, 22)}
             onWishlistChange={fetchListings}
             onSeeAll={() => router.push("/?view=all")}
           />

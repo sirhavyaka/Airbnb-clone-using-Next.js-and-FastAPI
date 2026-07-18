@@ -108,7 +108,7 @@ def seed_database(db: Session):
             "favorite": True,
             "amenity_indices": [0, 1, 2, 3, 4, 5, 6, 12, 15, 16, 17, 18, 19],
             "images": [
-                "https://images.unsplash.com/photo-1499793983394-12402c098a4b?w=1200",
+                "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200",
                 "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200",
                 "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200",
                 "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200",
@@ -134,7 +134,7 @@ def seed_database(db: Session):
             "baths": 2,
             "rating": 4.89,
             "reviews": 95,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 3, 4, 5, 7, 8, 13, 15, 16, 17, 18, 19],
             "images": [
                 "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=1200",
@@ -192,7 +192,7 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 4.97,
             "reviews": 203,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 3, 13, 15, 16, 17, 18, 19],
             "images": [
                 "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200",
@@ -221,12 +221,12 @@ def seed_database(db: Session):
             "baths": 2,
             "rating": 4.91,
             "reviews": 84,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 4, 5, 8, 9, 14, 15, 16, 17, 18, 23],
             "images": [
                 "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1200",
                 "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
-                "https://images.unsplash.com/photo-1505916349660-8d91a382ae72?w=1200",
+                "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200",
                 "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200",
                 "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200",
             ],
@@ -257,7 +257,7 @@ def seed_database(db: Session):
                 "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200",
                 "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=1200",
                 "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200",
-                "https://images.unsplash.com/photo-1532323544230-7191fd1a5d0e?w=1200",
+                "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=1200",
             ],
         },
         {
@@ -285,7 +285,7 @@ def seed_database(db: Session):
                 "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200",
                 "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200",
                 "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200",
-                "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200",
+                "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200",
                 "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=1200",
             ],
         },
@@ -308,7 +308,7 @@ def seed_database(db: Session):
             "baths": 2,
             "rating": 4.96,
             "reviews": 178,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 3, 4, 5, 6, 15, 16, 17, 18, 19],
             "images": [
                 "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200",
@@ -337,13 +337,13 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 4.99,
             "reviews": 312,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 3, 5, 6, 12, 15, 16, 17, 18, 19],
             "images": [
                 "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200",
                 "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200",
                 "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200",
-                "https://images.unsplash.com/photo-1559827291-baf25fa2a6b5?w=1200",
+                "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200",
                 "https://images.unsplash.com/photo-1501426026826-31c667bdf23d?w=1200",
             ],
         },
@@ -424,14 +424,14 @@ def seed_database(db: Session):
             "baths": 3,
             "rating": 4.92,
             "reviews": 134,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 3, 4, 5, 6, 8, 9, 15, 16, 17, 18, 21, 23],
             "images": [
                 "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200",
                 "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200",
                 "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200",
                 "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=1200",
-                "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200",
+                "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200",
             ],
         },
         {
@@ -517,7 +517,7 @@ def seed_database(db: Session):
                 "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200",
                 "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200",
                 "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200",
-                "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200",
+                "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200",
                 "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=1200",
             ],
         },
@@ -570,7 +570,7 @@ def seed_database(db: Session):
             "baths": 2,
             "rating": 4.88,
             "reviews": 42,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 3, 5, 6, 12, 15, 16, 17, 19],
             "images": [
                 "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200",
@@ -597,7 +597,7 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 4.97,
             "reviews": 61,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 3, 5, 15, 16, 17, 19],
             "images": [
                 "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200",
@@ -624,7 +624,7 @@ def seed_database(db: Session):
             "baths": 2,
             "rating": 4.90,
             "reviews": 88,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 3, 4, 5, 6, 15, 16, 17],
             "images": [
                 "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200",
@@ -678,7 +678,7 @@ def seed_database(db: Session):
             "baths": 3,
             "rating": 5.00,
             "reviews": 30,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 3, 4, 5, 6, 10, 15, 16, 17, 19],
             "images": [
                 "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200",
@@ -706,7 +706,7 @@ def seed_database(db: Session):
             "baths": 2,
             "rating": 4.91,
             "reviews": 55,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 5, 8, 13, 15, 16, 17, 19],
             "images": [
                 "https://images.unsplash.com/photo-1518732714860-b62714ce0c59?w=1200",
@@ -733,7 +733,7 @@ def seed_database(db: Session):
             "baths": 3,
             "rating": 4.95,
             "reviews": 72,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 5, 8, 13, 15, 16, 17],
             "images": [
                 "https://images.unsplash.com/photo-1595521624992-48a59aef95e3?w=1200",
@@ -787,7 +787,7 @@ def seed_database(db: Session):
             "baths": 4,
             "rating": 4.98,
             "reviews": 65,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 2, 4, 5, 8, 13, 15, 16, 17],
             "images": [
                 "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200",
@@ -815,7 +815,7 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 5.00,
             "reviews": 45,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 15, 16, 17],
             "images": [
                 "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200",
@@ -841,7 +841,7 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 4.99,
             "reviews": 32,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 15, 16],
             "images": [
                 "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200",
@@ -893,7 +893,7 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 4.98,
             "reviews": 89,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 15, 16],
             "images": [
                 "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=1200",
@@ -919,7 +919,7 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 5.00,
             "reviews": 64,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 15],
             "images": [
                 "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200",
@@ -945,7 +945,7 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 4.98,
             "reviews": 27,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 15],
             "images": [
                 "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200",
@@ -998,7 +998,7 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 5.00,
             "reviews": 210,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 3, 5, 15, 16, 17],
             "images": [
                 "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200",
@@ -1024,7 +1024,7 @@ def seed_database(db: Session):
             "baths": 1,
             "rating": 4.97,
             "reviews": 180,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 13, 15, 16, 17],
             "images": [
                 "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200",
@@ -1050,7 +1050,7 @@ def seed_database(db: Session):
             "baths": 2,
             "rating": 4.98,
             "reviews": 120,
-            "favorite": True,
+            "favorite": False,
             "amenity_indices": [0, 1, 3, 5, 15, 16, 17],
             "images": [
                 "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1200",
@@ -1240,4 +1240,18 @@ def seed_database(db: Session):
         ))
 
     db.commit()
-    print("✅ Database seeded successfully with sample data!")
+    print("✅ Base database seeded successfully with sample data!")
+
+    # Automatically seed all destinations, experiences, and services directly into the database
+    try:
+        from add_destinations import add_new_destinations
+        add_new_destinations()
+    except Exception as e:
+        print(f"Note/Error while seeding destinations into DB: {e}")
+
+    try:
+        from add_experiences_services import add_experiences_and_services
+        add_experiences_and_services()
+    except Exception as e:
+        print(f"Note/Error while seeding experiences and services into DB: {e}")
+
