@@ -90,7 +90,7 @@ A production-ready, full-stack Airbnb clone built from scratch as an assignment 
 ## Database Schema
 
 ```mermaid
-ER Diagram
+erDiagram
     USERS {
         int id PK
         string email UK
