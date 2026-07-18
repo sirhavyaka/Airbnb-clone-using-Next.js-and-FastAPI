@@ -7,7 +7,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Airbnb — Vacation Rentals, Homes, Experiences",
+  title: "Airbnb | Holiday rentals, cabins, beach houses & more",
   description: "Find unique places to stay with local hosts around the world. Book vacation rentals, apartments, and more on Stayscape.",
 };
 

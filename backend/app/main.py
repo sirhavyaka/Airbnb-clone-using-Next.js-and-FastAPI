@@ -14,7 +14,20 @@ async def lifespan(app: FastAPI):
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
     try:
+        # Run the core seed script
         seed_database(db)
+        
+        # Import and run the additional seed scripts for extra data
+        try:
+            from scripts.add_destinations import add_new_destinations
+            from scripts.add_experiences_services import add_experiences_and_services
+            
+            add_new_destinations()
+            add_experiences_and_services()
+            print("Auto-seeding completed successfully!")
+        except Exception as e:
+            print(f"Error running additional seed scripts: {e}")
+            
     finally:
         db.close()
     yield
