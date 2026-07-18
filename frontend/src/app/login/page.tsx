@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, Suspense } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useToast } from "@/context/ToastContext";
@@ -18,9 +18,23 @@ function LoginContent() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
+  const [coldStartNotice, setColdStartNotice] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (loading) {
+      timer = setTimeout(() => {
+        setColdStartNotice(true);
+      }, 3500);
+    } else {
+      setColdStartNotice(false);
+    }
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
     setLoading(true);
     try {
       if (mode === "register") {
@@ -34,7 +48,6 @@ function LoginContent() {
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Authentication failed";
       showToast(msg, "error");
-    } finally {
       setLoading(false);
     }
   };
@@ -85,8 +98,13 @@ function LoginContent() {
             />
           </div>
           <button type="submit" className="btn btn-primary btn-block btn-lg" disabled={loading}>
-            {loading ? "Please wait..." : mode === "login" ? "Log in" : "Sign up"}
+            {loading ? (coldStartNotice ? "Waking server up (~30s)..." : "Please wait...") : mode === "login" ? "Log in" : "Sign up"}
           </button>
+          {loading && coldStartNotice && (
+            <p className="text-xs text-amber-600 dark:text-amber-400 text-center mt-2 px-2 animate-fadeIn">
+              ⏳ First request wakes up the free-tier Render server. Thank you for waiting!
+            </p>
+          )}
         </form>
 
         <div className="flex items-center gap-4 px-6 text-text-secondary text-xs">
@@ -100,42 +118,45 @@ function LoginContent() {
           <p className="text-xs text-text-secondary text-center mb-1">Quick demo login:</p>
           <button
             className="btn btn-secondary btn-block text-left justify-start"
+            disabled={loading}
             onClick={async () => {
+              if (loading) return;
               setLoading(true);
               try {
                 await login("alice@example.com", "password123");
                 showToast("Logged in as Alice (Superhost) 🏠", "success");
                 router.push("/");
-              } catch { showToast("Login failed", "error"); }
-              finally { setLoading(false); }
+              } catch { showToast("Login failed", "error"); setLoading(false); }
             }}
           >
             🏠 Alice (Superhost)
           </button>
           <button
             className="btn btn-secondary btn-block text-left justify-start"
+            disabled={loading}
             onClick={async () => {
+              if (loading) return;
               setLoading(true);
               try {
                 await login("bob@example.com", "password123");
                 showToast("Logged in as Bob (Host)", "success");
                 router.push("/");
-              } catch { showToast("Login failed", "error"); }
-              finally { setLoading(false); }
+              } catch { showToast("Login failed", "error"); setLoading(false); }
             }}
           >
             🔑 Bob (Host)
           </button>
           <button
             className="btn btn-secondary btn-block text-left justify-start"
+            disabled={loading}
             onClick={async () => {
+              if (loading) return;
               setLoading(true);
               try {
                 await login("charlie@example.com", "password123");
                 showToast("Logged in as Charlie (Guest)", "success");
                 router.push("/");
-              } catch { showToast("Login failed", "error"); }
-              finally { setLoading(false); }
+              } catch { showToast("Login failed", "error"); setLoading(false); }
             }}
           >
             ✈️ Charlie (Guest)

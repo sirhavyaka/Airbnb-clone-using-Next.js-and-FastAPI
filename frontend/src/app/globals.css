@@ -33,7 +33,7 @@
 @layer components {
   /* Reusable button utilities */
   .btn {
-    @apply inline-flex items-center justify-center font-semibold rounded-lg px-6 py-3 cursor-pointer transition-all duration-150 border text-sm select-none;
+    @apply inline-flex items-center justify-center font-semibold rounded-lg px-6 py-3 cursor-pointer transition-all duration-150 border text-sm select-none disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none;
   }
 
   .btn-primary {
